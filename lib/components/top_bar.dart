@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:iconify_flutter/icons/zondicons.dart';
 
 class TopBar extends StatelessWidget implements PreferredSize {
   const TopBar({super.key});
@@ -8,12 +10,22 @@ class TopBar extends StatelessWidget implements PreferredSize {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: 0,
       backgroundColor: const Color(0xff2C3333),
       title: const Text("Chats",
-          style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
-      actions: [IconButton(onPressed: (){
-
-      }, icon: Icon(Icons.))],
+          style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.w600,
+              color: Color(0xffD6DFDE))),
+      actions: [
+        IconButton(
+            onPressed: () {},
+            icon: const Iconify(
+              Zondicons.user_solid_circle,
+              color: Color(0xffD6DFDE),
+              size: 30,
+            ))
+      ],
     );
   }
 
