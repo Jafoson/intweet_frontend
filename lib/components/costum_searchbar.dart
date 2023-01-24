@@ -21,11 +21,12 @@ class _CostumSearchState extends State<CostumSearch> {
         children: [
           const Expanded(
             child: TextField(
+              style: TextStyle(color: Color(0xffBEE3ED), fontSize: 13),
               decoration: InputDecoration(
                   filled: true,
                   fillColor: Color(0xff454D4D),
-                  hintText: "Hello World",
-                  hintStyle: TextStyle(color: Color(0xffD5FAFF)),
+                  hintText: "Search anything...",
+                  hintStyle: TextStyle(color: Color(0xffBEE3ED), fontSize: 13),
                   contentPadding: EdgeInsets.only(left: 16, top: 0, bottom: -1),
                   border: OutlineInputBorder(
                       borderSide: BorderSide.none,
@@ -43,7 +44,9 @@ class _CostumSearchState extends State<CostumSearch> {
               height: 38,
               width: 38,
               child: IconButton(
-                  onPressed: (() {}),
+                  onPressed: (() {
+                    FocusScope.of(context).unfocus();
+                  }),
                   icon: const Iconify(
                     MaterialSymbols.search,
                     color: Color(0xffD5FAFF),

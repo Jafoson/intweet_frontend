@@ -18,13 +18,16 @@ class TopBar extends StatelessWidget implements PreferredSize {
               fontWeight: FontWeight.w600,
               color: Color(0xffD6DFDE))),
       actions: [
-        IconButton(
-            onPressed: () {},
-            icon: const Iconify(
-              Zondicons.user_solid_circle,
-              color: Color(0xffD6DFDE),
-              size: 30,
-            ))
+        Container(
+          padding: EdgeInsets.only(right: 8, bottom: 0, top: 0),
+          child: IconButton(
+              onPressed: () {},
+              icon: const Iconify(
+                Zondicons.user_solid_circle,
+                color: Color(0xffD6DFDE),
+                size: 30,
+              )),
+        )
       ],
     );
   }

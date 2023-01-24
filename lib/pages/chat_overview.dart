@@ -13,7 +13,21 @@ class ChatOverview extends StatelessWidget {
         appBar: const TopBar(),
         body: Container(
           padding: const EdgeInsets.only(left: 16, right: 16),
-          child: Column(children: [CostumSearch()]),
+          child: Column(children: [
+            CostumSearch(),
+            Expanded(child: Container(
+              // color: Colors.red,
+              child: ListView.builder(
+                itemBuilder: (context, index) {
+                  return Container(
+                    height: 38,
+                    margin: EdgeInsets.only(top: 8),
+                    color: Colors.blue,
+                  );
+                },
+              ),
+            ))
+          ]),
         )
         // SearchBar(),
         );
