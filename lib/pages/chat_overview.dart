@@ -37,29 +37,51 @@ class ChatOverview extends StatelessWidget {
                       Expanded(
                           child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            "Paul",
-                            textAlign: TextAlign.left,
-                          ),
-                          Text(
-                              "Hallo du kleine Bitch ich hasse dich denn du bist eine hässliche Kuh!!!",
-                              textAlign: TextAlign.left),
+                        children: [
+                          Container(
+                              margin: const EdgeInsets.only(bottom: 2),
+                              child: const Text(
+                                "Paul",
+                                textAlign: TextAlign.left,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: Color(0xffD5FAFF),
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              )),
+                          const Text(
+                              "gzfrgfrzgrhguhuhhzugfzgfhzrugzhgzughihfhjughzuhgrungrhuuzhgrezhrzuhzuhzu",
+                              textAlign: TextAlign.left,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: Color(0xff93B6C1), fontSize: 14)),
                         ],
                       )),
                       Container(
+                        margin: EdgeInsets.only(left: 8),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("12:33"),
+                            const Text("12:33",
+                                style: TextStyle(
+                                    color: Color(0xff93B6C1), fontSize: 14)),
                             Container(
-                              padding: EdgeInsets.only(
+                              margin: const EdgeInsets.only(top: 18),
+                              padding: const EdgeInsets.only(
                                   left: 6, right: 6, top: 2, bottom: 2),
-                              decoration: BoxDecoration(
-                                  color: Colors.blue,
+                              decoration: const BoxDecoration(
+                                  color: Color(0xff008973),
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(50))),
-                              child: Text("99+"),
+                              child: const Text(
+                                "99+",
+                                style: TextStyle(
+                                    color: Color(0xffD5FAFF),
+                                    fontWeight: FontWeight.bold),
+                              ),
                             )
                           ],
                         ),
