@@ -15,7 +15,8 @@ class CostumSearch extends StatefulWidget {
 class _CostumSearchState extends State<CostumSearch> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      padding: EdgeInsets.only(left: 16, right: 16),
       height: 38,
       child: Row(
         children: [
