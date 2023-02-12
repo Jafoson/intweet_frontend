@@ -11,7 +11,7 @@ class ChatOverview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: const Color(0xff2C3333),
-        appBar: const TopBar(),
+        appBar: TopBar(title: "Chat", key: UniqueKey()),
         body: Container(
           child: Column(children: [
             const CostumSearch(),
