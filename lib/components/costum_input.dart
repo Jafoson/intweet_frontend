@@ -4,17 +4,21 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class CustomInput extends StatefulWidget {
+  final TextEditingController? controller;
   final Alignment alignment;
   final EdgeInsetsGeometry margin;
   final EdgeInsetsGeometry padding;
   final String tag;
   final IconData? prefixIcon;
   final bool password;
+  final void Function(String)? onChanged;
 
   const CustomInput(
       {Key? key,
       this.prefixIcon,
+      this.controller,
       this.password = false,
+      this.onChanged,
       this.tag = "",
       this.alignment = Alignment.centerLeft,
       this.margin = const EdgeInsets.all(0),
@@ -33,6 +37,8 @@ class _CustomInputState extends State<CustomInput> {
       alignment: widget.alignment,
       margin: widget.margin,
       child: TextField(
+        onChanged: widget.onChanged,
+        controller: widget.controller,
         obscureText: widget.password,
         style: const TextStyle(color: Color(0xffD5FAFF), fontSize: 16),
         decoration: InputDecoration(

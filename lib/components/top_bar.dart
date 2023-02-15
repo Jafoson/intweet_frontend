@@ -50,6 +50,5 @@ class TopBar extends StatelessWidget implements PreferredSize {
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
-  // TODO: implement child
   Widget get child => throw UnimplementedError();
 }

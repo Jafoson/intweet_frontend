@@ -1,14 +1,47 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:intweet_aplikation/components/buttons.dart';
 import 'package:intweet_aplikation/components/costum_input.dart';
-import 'package:intweet_aplikation/components/costum_searchbar.dart';
 import 'package:intweet_aplikation/components/top_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Creation extends StatelessWidget {
-  const Creation({super.key});
+class Creation extends StatefulWidget {
+  Creation({super.key});
+
+  @override
+  State<Creation> createState() => _PrimaryButtonState();
+}
+
+class _PrimaryButtonState extends State<Creation> {
+  final usernameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final repeatPasswordController = TextEditingController();
+
+  bool _allFieldValid = false;
+
+  void _updateTextFieldFilledStatus() {
+    setState(() {
+      _allFieldValid = usernameController.text.isNotEmpty &&
+          emailController.text.isNotEmpty &&
+          passwordController.text.isNotEmpty &&
+          repeatPasswordController.text.isNotEmpty;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _updateTextFieldFilledStatus();
+  }
+
+  @override
+  void dispose() {
+    usernameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    repeatPasswordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,60 +78,47 @@ class Creation extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
             ),
-            const CustomInput(
+            CustomInput(
+              onChanged: (text) => _updateTextFieldFilledStatus(),
+              controller: usernameController,
               tag: "Username",
               prefixIcon: Icons.person,
             ),
-            const CustomInput(
+            CustomInput(
+              onChanged: (text) => _updateTextFieldFilledStatus(),
+              controller: emailController,
               tag: "E-Mail",
               prefixIcon: Icons.email,
-              margin: EdgeInsets.only(top: 16),
+              margin: const EdgeInsets.only(top: 16),
             ),
-            const CustomInput(
+            CustomInput(
+              onChanged: (text) => _updateTextFieldFilledStatus(),
+              controller: passwordController,
               password: true,
               tag: "Password",
               prefixIcon: Icons.lock,
-              margin: EdgeInsets.only(top: 16),
+              margin: const EdgeInsets.only(top: 16),
             ),
-            const CustomInput(
+            CustomInput(
+              onChanged: (text) => _updateTextFieldFilledStatus(),
+              controller: repeatPasswordController,
               password: true,
               tag: "Repeat password",
               prefixIcon: Icons.lock,
-              margin: EdgeInsets.only(top: 16),
+              margin: const EdgeInsets.only(top: 16),
             ),
-            Align(
-              alignment: Alignment.topRight,
-              child: TextButton(
-                  onPressed: () {},
-                  child: const Text(
-                    textAlign: TextAlign.right,
-                    "Forgot Passwort?",
-                    style: TextStyle(
-                        fontSize: 15,
-                        color: Color(0xff4A9387),
-                        decoration: TextDecoration.underline),
-                    maxLines: 1,
-                  )),
-            ),
-            Container(
-              width: double.infinity,
+            PrimaryButton(
+              active: _allFieldValid,
+              onPressed: () {},
               margin: const EdgeInsets.only(top: 64),
-              child: TextButton(
-                  style: TextButton.styleFrom(
-                      padding: const EdgeInsets.only(top: 16, bottom: 16),
-                      backgroundColor: const Color(0xff4A9387),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15))),
-                  onPressed: () {},
-                  child: const Text(
-                    "Sign Up",
-                    textAlign: TextAlign.center,
-                    maxLines: 1,
-                    style: TextStyle(
-                        color: Color(0xffD5FAFF),
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600),
-                  )),
+              padding: const EdgeInsets.only(
+                  bottom: 16, top: 16, left: 32, right: 32),
+              label: const Text("Sign Up",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600)),
             )
           ],
         ),
