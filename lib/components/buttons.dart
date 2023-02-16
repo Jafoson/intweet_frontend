@@ -1,9 +1,4 @@
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class IconStyle {
   final double size;
@@ -139,5 +134,37 @@ class _PrimaryButtonState extends State<PrimaryButton> {
             ),
           )),
     );
+  }
+}
+
+class SecondaryButton extends StatefulWidget {
+  final EdgeInsetsGeometry margin;
+  final AlignmentGeometry alignment;
+  final void Function() onPressed;
+  final Widget label;
+
+  const SecondaryButton(
+      {super.key,
+      required this.onPressed,
+      required this.label,
+      this.margin = EdgeInsets.zero,
+      this.alignment = Alignment.center});
+
+  @override
+  State<SecondaryButton> createState() => _SecondaryButtonState();
+}
+
+class _SecondaryButtonState extends State<SecondaryButton> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: widget.margin,
+        child: Align(
+          alignment: widget.alignment,
+          child: TextButton(
+            onPressed: widget.onPressed,
+            child: widget.label,
+          ),
+        ));
   }
 }

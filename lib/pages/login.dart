@@ -1,30 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:intweet_aplikation/components/buttons.dart';
-import 'package:intweet_aplikation/components/costum_input.dart';
-import 'package:intweet_aplikation/components/top_bar.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 
-class Creation extends StatefulWidget {
-  const Creation({super.key});
+import '../components/buttons.dart';
+import '../components/costum_input.dart';
+import '../components/top_bar.dart';
+
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<Creation> createState() => _CreationState();
+  State<Login> createState() => _LoginState();
 }
 
-class _CreationState extends State<Creation> {
-  final usernameController = TextEditingController();
-  final emailController = TextEditingController();
+class _LoginState extends State<Login> {
+  final usernameOremailController = TextEditingController();
   final passwordController = TextEditingController();
-  final repeatPasswordController = TextEditingController();
 
   bool _allFieldValid = false;
 
   void _updateTextFieldFilledStatus() {
     setState(() {
-      _allFieldValid = usernameController.text.isNotEmpty &&
-          emailController.text.isNotEmpty &&
-          passwordController.text.isNotEmpty &&
-          repeatPasswordController.text.isNotEmpty;
+      _allFieldValid = usernameOremailController.text.isNotEmpty &&
+          passwordController.text.isNotEmpty;
     });
   }
 
@@ -36,10 +33,8 @@ class _CreationState extends State<Creation> {
 
   @override
   void dispose() {
-    usernameController.dispose();
-    emailController.dispose();
+    usernameOremailController.dispose();
     passwordController.dispose();
-    repeatPasswordController.dispose();
     super.dispose();
   }
 
@@ -69,7 +64,7 @@ class _CreationState extends State<Creation> {
               margin: const EdgeInsets.only(bottom: 20),
               width: double.infinity,
               child: const Text(
-                "Create Account",
+                "Welcome Back",
                 maxLines: 1,
                 style: TextStyle(
                     color: Colors.white,
@@ -80,61 +75,57 @@ class _CreationState extends State<Creation> {
             ),
             CustomInput(
               onChanged: (text) => _updateTextFieldFilledStatus(),
-              controller: usernameController,
-              tag: "Username",
+              controller: usernameOremailController,
+              tag: "Username or E-Mail",
               prefixIcon: Icons.person,
             ),
             CustomInput(
               onChanged: (text) => _updateTextFieldFilledStatus(),
-              controller: emailController,
-              tag: "E-Mail",
-              prefixIcon: Icons.email,
-              margin: const EdgeInsets.only(top: 16),
-            ),
-            CustomInput(
-              onChanged: (text) => _updateTextFieldFilledStatus(),
               controller: passwordController,
-              password: true,
               tag: "Password",
-              prefixIcon: Icons.lock,
-              margin: const EdgeInsets.only(top: 16),
-            ),
-            CustomInput(
-              onChanged: (text) => _updateTextFieldFilledStatus(),
-              controller: repeatPasswordController,
               password: true,
-              tag: "Repeat password",
               prefixIcon: Icons.lock,
               margin: const EdgeInsets.only(top: 16),
             ),
+            SecondaryButton(
+                alignment: Alignment.centerRight,
+                onPressed: () {},
+                label: const Text(
+                  "Forgot Password",
+                  maxLines: 1,
+                  style: TextStyle(
+                      color: Color(0xff4A9387),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600),
+                )),
             PrimaryButton(
               active: _allFieldValid,
               onPressed: () {
-                if (passwordController.text == repeatPasswordController.text) {
-                  print("FUNKTIONIERT!!!!!!!");
-                  Navigator.popAndPushNamed(context, "/overview");
-                } else {
-                  print("HUNDESOHN");
-                }
+                Navigator.popAndPushNamed(context, "/overview");
+                //if (passwordController.text == repeatPasswordController.text) {
+                //  print("FUNKTIONIERT!!!!!!!");
+                //} else {
+                //  print("HUNDESOHN");
+                //}
               },
               margin: const EdgeInsets.only(top: 64),
               padding: const EdgeInsets.only(
                   bottom: 16, top: 16, left: 32, right: 32),
-              label: const Text("Sign Up",
+              label: const Text("Login",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.w600)),
             ),
-            toSignIn()
+            toSignUp()
           ],
         ),
       ),
     );
   }
 
-  toSignIn() {
+  toSignUp() {
     return Padding(
         padding: const EdgeInsets.only(top: 8),
         child: Align(
@@ -143,16 +134,16 @@ class _CreationState extends State<Creation> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Already have any Account?",
+                "Dont have a Account?",
                 maxLines: 1,
                 style: TextStyle(color: Colors.white, fontSize: 16),
               ),
               SecondaryButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, "/signIn");
+                    Navigator.pushNamed(context, "/signUp");
                   },
                   label: const Text(
-                    "Sign In",
+                    "Sign Up",
                     maxLines: 1,
                     style: TextStyle(
                         color: Color(0xff4A9387),
