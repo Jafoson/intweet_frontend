@@ -14,7 +14,7 @@ class ChatOverview extends StatelessWidget {
         appBar: TopBar(title: "Chat", key: UniqueKey()),
         body: Container(
           child: Column(children: [
-            const CostumSearch(),
+            // const CostumSearch(),
             Expanded(child: ListView.builder(
               itemBuilder: (context, index) {
                 return const OverviewContainer();

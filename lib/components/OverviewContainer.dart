@@ -63,16 +63,18 @@ class ChatContainer extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              margin: const EdgeInsets.only(top: 4, bottom: 4, right: 16),
-              height: 60,
-              width: 60,
-              decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      image: NetworkImage(
-                          "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*"),
-                      fit: BoxFit.fill)),
-            ),
+                margin: const EdgeInsets.only(top: 4, bottom: 4, right: 16),
+                height: 60,
+                width: 60,
+                child: ClipOval(
+                    child: FadeInImage.assetNetwork(
+                  placeholder: 'assets/images/user_placeholder.png',
+                  image:
+                      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=0.752xw:1.00xh;0.175xw,0&resize=1200:*',
+                  fit: BoxFit.fill,
+                  width: 60,
+                  height: 60,
+                ))),
             Expanded(
                 child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
