@@ -76,8 +76,8 @@ class _LoginState extends State<Login> {
             CustomInput(
               onChanged: (text) => _updateTextFieldFilledStatus(),
               controller: usernameOremailController,
-              tag: "Username or E-Mail",
-              prefixIcon: Icons.person,
+              tag: "E-Mail",
+              prefixIcon: Icons.mail,
             ),
             CustomInput(
               onChanged: (text) => _updateTextFieldFilledStatus(),
@@ -87,21 +87,22 @@ class _LoginState extends State<Login> {
               prefixIcon: Icons.lock,
               margin: const EdgeInsets.only(top: 16),
             ),
-            SecondaryButton(
-                alignment: Alignment.centerRight,
-                onPressed: () {},
-                label: const Text(
-                  "Forgot Password",
-                  maxLines: 1,
-                  style: TextStyle(
-                      color: Color(0xff4A9387),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600),
-                )),
+            // SecondaryButton(
+            //     alignment: Alignment.centerRight,
+            //     onPressed: () {},
+            //     label: const Text(
+            //       "Forgot Password",
+            //       maxLines: 1,
+            //       style: TextStyle(
+            //           color: Color(0xff4A9387),
+            //           fontSize: 16,
+            //           fontWeight: FontWeight.w600),
+            //     )),
             PrimaryButton(
               active: _allFieldValid,
               onPressed: () {
-                Navigator.popAndPushNamed(context, "/overview");
+                print(usernameOremailController.text);
+                // Navigator.popAndPushNamed(context, "/overview");
                 //if (passwordController.text == repeatPasswordController.text) {
                 //  print("FUNKTIONIERT!!!!!!!");
                 //} else {
@@ -154,4 +155,6 @@ class _LoginState extends State<Login> {
           ),
         ));
   }
+
+  login() {}
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>170021392763-9no3kvg9ts52eaj2up5k6ctirv8hl3qe.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.170021392763-9no3kvg9ts52eaj2up5k6ctirv8hl3qe</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDwgrX6Fo8YH3QD0WAYR5buuws48WGgonw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>170021392763</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.intweetAplikation</string>
+	<key>PROJECT_ID</key>
+	<string>intweet-8f725</string>
+	<key>STORAGE_BUCKET</key>
+	<string>intweet-8f725.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:170021392763:ios:ba339198c4aaf2b07dedde</string>
+</dict>
+</plist>

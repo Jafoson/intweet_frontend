@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "170021392763",
+    "project_id": "intweet-8f725",
+    "storage_bucket": "intweet-8f725.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:170021392763:android:24002770181fa5117dedde",
+        "android_client_info": {
+          "package_name": "com.example.intweet_aplikation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "170021392763-oagq59dijkdukgq4a0vf0qhgei4rsnqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxwPA4EYsFCGBaKzrAS8jBv3bzLxxkeZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "170021392763-oagq59dijkdukgq4a0vf0qhgei4rsnqn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "170021392763-9no3kvg9ts52eaj2up5k6ctirv8hl3qe.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.intweetAplikation"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
