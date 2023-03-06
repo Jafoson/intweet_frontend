@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/zondicons.dart';
+import 'package:intweet_aplikation/service/auth_service.dart';
 
 class TopBar extends StatelessWidget implements PreferredSize {
   final bool _actions;
@@ -19,6 +20,7 @@ class TopBar extends StatelessWidget implements PreferredSize {
 
   @override
   Widget build(BuildContext context) {
+    AuthService authService = AuthService();
     return AppBar(
         leading: _leading,
         elevation: 0,
@@ -35,9 +37,12 @@ class TopBar extends StatelessWidget implements PreferredSize {
                 Container(
                   padding: const EdgeInsets.only(right: 8, bottom: 0, top: 0),
                   child: IconButton(
-                      onPressed: () {},
-                      icon: const Iconify(
-                        Zondicons.user_solid_circle,
+                      onPressed: () {
+                        authService.signOut();
+                        Navigator.popAndPushNamed(context, "/login");
+                      },
+                      icon: const Icon(
+                        Icons.power_settings_new,
                         color: Color(0xffD6DFDE),
                         size: 30,
                       )),
@@ -45,6 +50,8 @@ class TopBar extends StatelessWidget implements PreferredSize {
               ]
             : []);
   }
+
+// TODO mach die TopBar neu, die ist schmutz.
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
