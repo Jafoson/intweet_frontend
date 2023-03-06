@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/zondicons.dart';
+import 'package:intweet_aplikation/pages/login.dart';
 import 'package:intweet_aplikation/service/auth_service.dart';
 
 class TopBar extends StatelessWidget implements PreferredSize {
@@ -39,7 +40,11 @@ class TopBar extends StatelessWidget implements PreferredSize {
                   child: IconButton(
                       onPressed: () {
                         authService.signOut();
-                        Navigator.popAndPushNamed(context, "/login");
+                        print("Warum");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => const Login())));
                       },
                       icon: const Icon(
                         Icons.power_settings_new,

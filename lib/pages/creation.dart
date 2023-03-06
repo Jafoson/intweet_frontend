@@ -4,6 +4,7 @@ import 'package:intweet_aplikation/components/costum_input.dart';
 import 'package:intweet_aplikation/components/top_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intweet_aplikation/helper/helper_function.dart';
+import 'package:intweet_aplikation/pages/chat_overview.dart';
 import 'package:intweet_aplikation/service/auth_service.dart';
 
 import '../components/widgets.dart';
@@ -55,15 +56,10 @@ class _CreationState extends State<Creation> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: const Color(0xff2C3333),
-        appBar: TopBar(
-          key: UniqueKey(),
-          actions: false,
-          leading: IconButton(
-              onPressed: () {},
-              icon: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.arrow_back_ios),
-              )),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          backgroundColor: const Color(0xff2C3333),
+          elevation: 0,
         ),
         body: _isloading
             ? Center(
@@ -194,7 +190,8 @@ class _CreationState extends State<Creation> {
           await HelperFunction.saveUserLoggedInStatus(true);
           await HelperFunction.saveUserEmailSF(emailController.text);
           await HelperFunction.saveUserNameSF(usernameController.text);
-          Navigator.popAndPushNamed(context, "/overview");
+          Navigator.push(context,
+              MaterialPageRoute(builder: ((context) => ChatOverview())));
         } else {
           showSnackBar(
             context,

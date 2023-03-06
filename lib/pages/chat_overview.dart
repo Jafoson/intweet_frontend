@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intweet_aplikation/components/costum_searchbar.dart';
 import 'package:intweet_aplikation/components/top_bar.dart';
+import 'package:intweet_aplikation/pages/login.dart';
 import 'package:intweet_aplikation/service/auth_service.dart';
 
 import '../components/OverviewContainer.dart';
@@ -14,6 +15,7 @@ class ChatOverview extends StatelessWidget {
     return Scaffold(
         backgroundColor: const Color(0xff2C3333),
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: const Color(0xff2C3333),
           elevation: 0,
           title: const Text(
@@ -27,6 +29,8 @@ class ChatOverview extends StatelessWidget {
             IconButton(
                 onPressed: (() {
                   authService.signOut();
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) => const Login())));
                 }),
                 icon: const Icon(Icons.power_settings_new))
           ],
