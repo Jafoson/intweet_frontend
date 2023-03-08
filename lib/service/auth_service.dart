@@ -31,7 +31,6 @@ class AuthService {
         return true;
       }
     } on FirebaseAuthException catch (e) {
-      print(e);
       return e.message;
     }
   }
@@ -42,9 +41,7 @@ class AuthService {
       await HelperFunction.saveUserEmailSF("");
       await HelperFunction.saveUserNameSF("");
       await firebaseAuth.signOut();
-      print("RICHTIG");
     } catch (e) {
-      print("FEHLER");
       return null;
     }
   }

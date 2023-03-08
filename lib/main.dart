@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:intweet_aplikation/helper/helper_function.dart';
-import 'package:intweet_aplikation/pages/chat.dart';
 import 'package:intweet_aplikation/pages/chat_overview.dart';
 import 'package:intweet_aplikation/pages/creation.dart';
 import 'package:intweet_aplikation/pages/login.dart';
@@ -49,11 +48,11 @@ class _MyAppState extends State<MyApp> {
       routes: {
         "/signIn": (context) => const Login(),
         "/signUp": (context) => const Creation(),
-        "/overview": (context) => const ChatOverview()
+        "/overview": (context) => const HomePage()
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: _isSignedIn ? const ChatOverview() : const Login(),
+      home: _isSignedIn ? const HomePage() : const Login(),
     );
   }
 }

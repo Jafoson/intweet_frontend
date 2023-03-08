@@ -6,7 +6,11 @@ import 'package:iconify_flutter/iconify_flutter.dart';
 import 'package:iconify_flutter/icons/material_symbols.dart';
 
 class CostumSearch extends StatefulWidget {
-  const CostumSearch({super.key});
+  final TextEditingController? controller;
+  final void Function() onTap;
+
+  const CostumSearch({Key? key, required this.controller, required this.onTap})
+      : super(key: key);
 
   @override
   State<CostumSearch> createState() => _CostumSearchState();
@@ -16,17 +20,18 @@ class _CostumSearchState extends State<CostumSearch> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 16, right: 16),
+      padding: const EdgeInsets.only(left: 16, right: 16),
       height: 38,
       child: Row(
         children: [
-          const Expanded(
+          Expanded(
             child: TextField(
-              style: TextStyle(color: Color(0xffBEE3ED), fontSize: 13),
-              decoration: InputDecoration(
+              controller: widget.controller,
+              style: const TextStyle(color: Color(0xffBEE3ED), fontSize: 13),
+              decoration: const InputDecoration(
                   filled: true,
                   fillColor: Color(0xff454D4D),
-                  hintText: "Search anything...",
+                  hintText: "Search groups...",
                   hintStyle: TextStyle(color: Color(0xffBEE3ED), fontSize: 13),
                   contentPadding: EdgeInsets.only(left: 16, top: 0, bottom: -1),
                   border: OutlineInputBorder(
@@ -45,9 +50,7 @@ class _CostumSearchState extends State<CostumSearch> {
               height: 38,
               width: 38,
               child: IconButton(
-                  onPressed: (() {
-                    FocusScope.of(context).unfocus();
-                  }),
+                  onPressed: widget.onTap,
                   icon: const Iconify(
                     MaterialSymbols.search,
                     color: Color(0xffD5FAFF),

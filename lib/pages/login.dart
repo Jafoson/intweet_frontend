@@ -188,9 +188,9 @@ class _LoginState extends State<Login> {
           await HelperFunction.saveUserNameSF(snapshot.docs[0]["userName"]);
           // ignore: use_build_context_synchronously
           Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => const ChatOverview())));
+              MaterialPageRoute(builder: ((context) => const HomePage())));
         } else {
-          showSnackBar(
+          showSnackbar(
             context,
             Colors.red,
             value,

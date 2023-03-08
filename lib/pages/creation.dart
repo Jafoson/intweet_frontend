@@ -190,10 +190,10 @@ class _CreationState extends State<Creation> {
           await HelperFunction.saveUserLoggedInStatus(true);
           await HelperFunction.saveUserEmailSF(emailController.text);
           await HelperFunction.saveUserNameSF(usernameController.text);
-          Navigator.push(context,
-              MaterialPageRoute(builder: ((context) => ChatOverview())));
+          Navigator.push(
+              context, MaterialPageRoute(builder: ((context) => HomePage())));
         } else {
-          showSnackBar(
+          showSnackbar(
             context,
             Colors.red,
             value,
